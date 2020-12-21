@@ -8,6 +8,12 @@ class Header {
     get logoutButton () {
         return cy.get("a[role='button ']")
     }
+    get createGalleryButton () {
+        return cy.get("a[href='/create']")
+    }
+    get myGalleriesButton () {
+        return cy.get("a[href='/my-galleries']")
+    }
 
     logout(){
         this.logoutButton.click()

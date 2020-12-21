@@ -2,7 +2,10 @@
     "Header" : {
         "Login" : "a[href='/login']",
         "Register" : "a[href='/register']",
-        "Logout" : "a[role='button ']"
+        "Logout" : "a[role='button ']",
+        "CreateGallery" : "a[href='/create']",
+        "MyGalleries" : "a[href='/my-galleries']",
+        "AllGalleries" : "a[href='/']"
         
     },
     "Login" : {
@@ -19,6 +22,24 @@
         "Terms" : ".form-check-input",
         "Submit" : ".btn"
         
+    },
+
+    "CreateGallery" : {
+        "Title" : "#title",
+        "Desription" : "#description",
+        "ImageUrl" : "input[placeholder='image url']",
+        "SubmitCancel" : "button[type='submit']"
+    },
+
+    "MyGalleries" : {
+        "BoxTitle" : "a[class='box-title']",
+        "DeleteGallery" : ":nth-child(5) > button.btn"
+    },
+    
+    "AllGalleries" : {
+        "Search" : "input[aria-label='Search...']",
+        "Filter" : "button[class='btn btn-outline-secondary input-button']",
+        "LoadMore" : "button[class='btn btn-custom']"
     }
    
 }
