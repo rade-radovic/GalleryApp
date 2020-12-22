@@ -3,6 +3,7 @@
 const faker = require('faker')
 const Locators = require('../fixtures/Locators.json')
 
+
 let userData = {
     randomName : faker.name.firstName(),
     randomLastName : faker.name.lastName(),
@@ -16,6 +17,33 @@ describe('Poboljsani Login', () => {
     beforeEach("Visit gallery app", () => {
         cy.visit("/")
         cy.url().should("contains", "https://gallery-app")
+        // cy.request('POST', 'https://gallery-api.vivifyideas.com/api/auth/login',{
+        //     email:"testhome@test.com",
+        //     password:"test1234"
+        // }).its('body').then((responseBody) => {
+        //     window.localStorage.setItem('token', responseBody.access_token)
+        // })
+        // cy.loginCommand('test123123@test.com', 'test123123')
+        // cy.loginCommandEnv()
+    })
+
+    it.only('intercet requesta', () =>{
+        cy.intercept('POST', 'https://gallery-api.vivifyideas.com/api/auth/login', (req) => {
+
+        }).as('successfulLogin')
+        cy.visit('/login')
+        cy.get(Locators.Login.Email).type('testhome@test.com')
+        cy.get(Locators.Login.Password).type('test1234')
+        cy.get(Locators.Login.Submit).click()
+        cy.wait('@successfulLogin').then((interception) => {
+            // console.log(interception)
+            expect(interception.response.body.user_id).to.equal(110)
+        })
+    })
+
+    it('login through backend', () => {
+        cy.visit('/login')
+
     })
 
     let correctEmail = "testhome@test.com"
@@ -41,7 +69,7 @@ describe('Poboljsani Login', () => {
         cy.get(Locators.Login.Submit).click()
     })
 
-    it.only('Register with faker credentials', () => {
+    it('Register with faker credentials', () => {
         cy.get(Locators.Header.Register).click()
         cy.get(Locators.Register.FirstName).type(userData.randomName)
         cy.get(Locators.Register.LastName).type(userData.randomLastName)

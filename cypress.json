@@ -1,3 +1,7 @@
 {
-    "baseUrl": "https://gallery-app.vivifyideas.com/"
+    "baseUrl": "https://gallery-app.vivifyideas.com/",
+    "env" : {
+        "EXTERNAL_USERNAME" : "",
+        "EXTERNAL_PASSWORD" : ""
+    }
 }

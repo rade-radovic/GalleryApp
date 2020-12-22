@@ -26,7 +26,7 @@
 
     "CreateGallery" : {
         "Title" : "#title",
-        "Desription" : "#description",
+        "Description" : "#description",
         "ImageUrl" : "input[placeholder='image url']",
         "SubmitCancel" : "button[type='submit']"
     },
@@ -41,5 +41,7 @@
         "Filter" : "button[class='btn btn-outline-secondary input-button']",
         "LoadMore" : "button[class='btn btn-custom']"
     }
+
+
    
 }
