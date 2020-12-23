@@ -11,7 +11,7 @@ describe ('registracija stub', () =>{
         cy.get(Locators.Register.PasswordConfirmation).type('test1234') 
         cy.get(Locators.Register.Terms).check()
         cy.get(Locators.Register.Submit).click()
-        cy.intercept('POST', 'https://gallery-api.vivifyideas.com/api/auth/register', { ficture : 'stubUser.json'})
+        cy.intercept('POST', 'https://gallery-api.vivifyideas.com/api/auth/register', { fixture : 'stubUser.json'})
     })
 })
 

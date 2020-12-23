@@ -33,7 +33,9 @@
 
     "MyGalleries" : {
         "BoxTitle" : "a[class='box-title']",
-        "DeleteGallery" : ":nth-child(5) > button.btn"
+        "DeleteGallery" : ":nth-child(5) > button.btn",
+        "Comment" : "textarea[placeholder='Comment...']",
+        "Submit" : "button[type='submit']"
     },
     
     "AllGalleries" : {

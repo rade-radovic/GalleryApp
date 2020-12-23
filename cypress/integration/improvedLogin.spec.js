@@ -27,7 +27,7 @@ describe('Poboljsani Login', () => {
         // cy.loginCommandEnv()
     })
 
-    it.only('intercet requesta', () =>{
+    it('intercet requesta', () =>{
         cy.intercept('POST', 'https://gallery-api.vivifyideas.com/api/auth/login', (req) => {
 
         }).as('successfulLogin')

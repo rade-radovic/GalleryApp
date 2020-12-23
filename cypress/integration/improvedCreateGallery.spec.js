@@ -21,7 +21,7 @@ describe('Poboljsani create gallery', () =>{
         cy.get(Locators.Login.Submit).click()
         cy.get(Locators.Header.CreateGallery).click()
         cy.get(Locators.CreateGallery.Title).type(galleryTitle)
-        cy.get(Locators.CreateGallery.Desription).type(galleryDescription)
+        cy.get(Locators.CreateGallery.Description).type(galleryDescription)
         cy.get(Locators.CreateGallery.ImageUrl).type(imageUrl)
         cy.get(Locators.CreateGallery.SubmitCancel).eq(0).click()
         cy.get(Locators.Header.MyGalleries).click()

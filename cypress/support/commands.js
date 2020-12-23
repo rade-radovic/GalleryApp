@@ -36,7 +36,7 @@ Cypress.Commands.add('loginCommand', (userName, password) => {
     
     })
 })
-
+// pitaj da li se preko tokena prepisuje, i gde je to
 Cypress.Commands.add('loginCommandEnv', () => {
     cy.request({
         method: 'POST',
@@ -44,6 +44,40 @@ Cypress.Commands.add('loginCommandEnv', () => {
         body : {
             email : Cypress.env('EXTERNAL_USERNAME'),
             password : Cypress.env('EXTERNAL_PASSWORD') 
+        }
+    }).its('body').then((responseBody) => {
+        window.localStorage.setItem('token', responseBody.access_token)
+    })
+})
+
+Cypress.Commands.add('registerCommand', (firstName, LastName, email, password) => {
+    cy.request({
+        method : 'POST',
+        url :  'https://gallery-api.vivifyideas.com/api/auth/register',
+        body : {
+            first_name : firstName,
+            last_name: LastName,
+            email : email,
+            password : password,
+            password_confirmation : password,
+            terms_and_conditions : true
+        }
+    }).its('body').then((responseBody) => {
+        window.localStorage.setItem('token', responseBody.access_token)
+    }) 
+})
+
+Cypress.Commands.add('registerCommandEnv', () => {
+    cy.request({
+        method : 'POST',
+        url :  'https://gallery-api.vivifyideas.com/api/auth/register',
+        body : {
+            first_name : Cypress.env('EXTERNAL_FIRST_NAME'),
+            last_name: Cypress.env('EXTERNAL_LAST_NAME'),
+            email :  Cypress.env('EXTERNAL_USERNAME'),
+            password : Cypress.env('EXTERNAL_PASSWORD'),
+            password_confirmation : Cypress.env('EXTERNAL_PASSWORD'),
+            terms_and_conditions : true
         }
     }).its('body').then((responseBody) => {
         window.localStorage.setItem('token', responseBody.access_token)
