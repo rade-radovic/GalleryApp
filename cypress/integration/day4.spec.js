@@ -60,7 +60,7 @@ describe('Primer 4 dan', () =>{
     it('Get new gallery', () =>{
         cy.request({
             method : 'GET',
-            url : (`https://gallery-api.vivifyideas.com/api/galleries/${galleryId}`)  //znak pored tilde, dodavanje gallery id u url
+            url : (`https://gallery-api.vivifyideas.com/api/galleries/${galleryId}`)  //znak pored tilde, dodavanje gallery id u urlg
         }).its('body').then((responseBody) =>{
             expect(responseBody.id).to.equal(galleryId)
             expect(responseBody.title).to.equal(userData.randomTitle)
